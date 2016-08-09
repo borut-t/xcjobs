@@ -264,7 +264,8 @@ module XCJobs
         
         add_build_setting('GCC_SYMBOLS_PRIVATE_EXTERN', 'NO')
 
-        run(['xcodebuild', 'test'] + options)
+        run(['xcodebuild', 'build-for-testing'] + options)
+        run(['xcodebuild', 'test-without-building'] + options)
         
         if coverage_enabled
           coverage_report(options)
